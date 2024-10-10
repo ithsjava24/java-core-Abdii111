@@ -50,10 +50,10 @@ public class Warehouse {
             throw new IllegalArgumentException("Category can't be null.");
         }
         if (id == null) {
-            id = UUID.randomUUID(); // Generera UUID om det inte anges
+            id = UUID.randomUUID();
         }
         if (price == null) {
-            price = BigDecimal.ZERO; // Sätt default pris om det är null
+            price = BigDecimal.ZERO;
         }
         if (price.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("Price can't be null or negative.");
@@ -66,7 +66,7 @@ public class Warehouse {
 
         ProductRecord product = new ProductRecord(id, name, category, price);
         products.add(product); // Lägg till produkten i listan
-        return product; // Returnera den tillagda produkten
+        return product;
     }
 
     public Optional<ProductRecord> getProductById(UUID id) {
