@@ -7,7 +7,7 @@ public class Warehouse {
 
     private static Warehouse instance;
     private final String name;
-    private final List<ProductRecord> products; // Använd ArrayList för att bevara insättningsordningen
+    private final List<ProductRecord> products;
     private final Set<ProductRecord> changedProducts;
 
     private Warehouse(String name) {
@@ -20,7 +20,7 @@ public class Warehouse {
         if (instance == null) {
             instance = new Warehouse(name);
         } else {
-            instance.clear(); // Rensa produkter om instansen redan finns
+            instance.clear();
         }
         return instance;
     }
@@ -39,7 +39,7 @@ public class Warehouse {
     }
 
     public List<ProductRecord> getProducts() {
-        return Collections.unmodifiableList(new ArrayList<>(products)); // Returnera en oföränderlig lista
+        return Collections.unmodifiableList(new ArrayList<>(products));
     }
 
     public ProductRecord addProduct(UUID id, String name, Category category, BigDecimal price) {
