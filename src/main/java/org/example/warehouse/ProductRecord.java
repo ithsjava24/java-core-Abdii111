@@ -34,6 +34,9 @@ public class ProductRecord {
     }
 
     public void setPrice(BigDecimal price) {
+        if (price == null || price.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Price can't be null or negative.");
+        }
         this.price = price; // Metod för att uppdatera priset
     }
 }
